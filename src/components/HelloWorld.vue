@@ -21,12 +21,29 @@
 </template>
 
 <script>
+import ajax from '../../public/js/ajax';
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      data: undefined
     }
+  },
+  mounted() {
+    this.get();
+  },
+  methods: {
+    get() {
+      ajax.get('http://localhost:3030/api', {
+      }, (res) => {
+        console.log(res);
+      }, (err) => {
+        console.log(err);
+      });
+    }
+
   }
 }
 </script>
