@@ -17,6 +17,8 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <p>{{data.name}}</p>
+
   </div>
 </template>
 
@@ -36,9 +38,11 @@ export default {
   },
   methods: {
     get() {
+      var that = this;
       ajax.get('http://localhost:3030/api', {
       }, (res) => {
         console.log(res);
+        that.data = res
       }, (err) => {
         console.log(err);
       });

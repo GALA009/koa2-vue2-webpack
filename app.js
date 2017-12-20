@@ -22,7 +22,7 @@ app.use(json());
 app.use(logger());
 app.use(cors({
   origin: (ctx) => {
-    return 'http://localhost:8080,http://local.hui-jia.com.cn';
+    return 'http://localhost:8080';
   },
   methods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   credentials: true,
