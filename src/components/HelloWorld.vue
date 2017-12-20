@@ -17,35 +17,35 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
-    <p>{{data.name}}</p>
+    <p>{{dataName}}</p>
 
   </div>
 </template>
 
 <script>
-import ajax from '../../public/js/ajax';
+import ajax from '../../public/js/ajax'
 
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      data: undefined
+      dataName: undefined
     }
   },
-  mounted() {
-    this.get();
+  mounted () {
+    this.get()
   },
   methods: {
-    get() {
-      var that = this;
-      ajax.get('http://localhost:3030/api', {
+    get () {
+      var that = this
+      ajax.get('http://localhost:3030/api/index', {
       }, (res) => {
-        console.log(res);
-        that.data = res
+        console.log(res)
+        that.dataName = res.name
       }, (err) => {
-        console.log(err);
-      });
+        console.log(err)
+      })
     }
 
   }
