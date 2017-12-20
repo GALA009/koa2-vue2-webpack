@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{dataName}}</h2>
-    <router-link to="/user">去往信息页</router-link>
+    <router-link to="/">去往首页</router-link>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   methods: {
     get () {
       var that = this
-      ajax.get('http://localhost:3030/api/index', {
+      ajax.get('http://localhost:3030/api/user', {
       }, (res) => {
         console.log(res)
         that.dataName = res.name
