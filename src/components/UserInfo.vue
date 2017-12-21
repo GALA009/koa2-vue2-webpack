@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <h2>{{dataName}}</h2>
+    <h3>状态：{{number}}</h3>
     <router-link to="/">去往首页</router-link>
   </div>
 </template>
@@ -13,9 +13,14 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       dataName: undefined
     }
+  },
+  computed: {
+      // store 计数状态
+      number () {
+        return this.$store.state.count
+      }
   },
   mounted () {
     this.get()

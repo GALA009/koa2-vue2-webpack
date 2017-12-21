@@ -34,9 +34,10 @@ app.use(require('koa-static')(__dirname + '/public'))
 // logger
 app.use(async (ctx, next) => {
   try {
-    await next();
-    const start = new Date();
-    const ms = new Date() - start;
+    await next()
+    const start = new Date()
+    const ms = new Date() - start
+    
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 
   } catch (error) {

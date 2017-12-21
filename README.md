@@ -1,12 +1,17 @@
 # koa2-vue2-webpack
 
-> A Vue.js project
+> 使用koa2、vue2、webpack 搭建的基础框架
 
-## Build Setup
+## 开始
+``` bash 
+git clone https://github.com/genmmao/koa2-vue2-webpack.git
+yarn install
+```
 
+## vue 前端命令
 ``` bash
 # install dependencies
-npm install
+yarn install
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -24,4 +29,7 @@ npm run unit
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## koa 后端命令
+``` bash
+nodemon server.babel.js
+```
