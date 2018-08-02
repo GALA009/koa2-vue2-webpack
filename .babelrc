@@ -8,7 +8,9 @@
     }],
     "stage-0"
   ],
-  "plugins": ["transform-vue-jsx", "transform-runtime"],
+  "plugins": ["transform-vue-jsx", ["transform-runtime", {
+    "polyfill": false
+  }]],
   "env": {
     "test": {
       "presets": ["env", "stage-0"],

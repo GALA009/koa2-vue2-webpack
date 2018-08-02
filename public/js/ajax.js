@@ -4,8 +4,8 @@
  * @Last Modified by: GM
  * @Last Modified time: 2017-03-27 15:10:09
  */
-let $ = require('webpack-zepto')
-let re = new RegExp('[a-zA-z]+://[^\s]*')
+let $ = require('webpack-zepto');
+let re = new RegExp('[a-zA-z]+://[^\s]*');
 
 export default {
   get (url, data, successFun, errorFun) {

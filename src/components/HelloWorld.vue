@@ -11,42 +11,42 @@
 </template>
 
 <script>
-import ajax from '../../public/js/ajax'
+import ajax from '../../public/js/ajax';
 
 export default {
   data () {
     return {
       dataName: undefined
-    }
+    };
   },
   computed: {
     num: {
       get () {
-        return this.$store.state.count
+        return this.$store.state.count;
       },
       set (value) {
-        this.$store.commit('updateCount', value)
+        this.$store.commit('updateCount', value);
       }
     }
   },
   mounted () {
-    console.log(this.$store)
-    this.get()
+    console.log(this.$store);
+    this.get();
   },
   methods: {
     get () {
-      var that = this
+      var that = this;
       ajax.get('http://localhost:3030/api/index', {
       }, (res) => {
-        console.log(res)
-        that.dataName = res.name
+        console.log(res);
+        that.dataName = res.name;
       }, (err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
     }
 
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

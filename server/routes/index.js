@@ -4,14 +4,14 @@
  * @Last Modified by: Zhang Genmao
  */
 
-const list = require('../controllers/list')
+const list = require('../controllers/list');
 
-const router = require('koa-router')()
+const router = require('koa-router')();
 
 // 后台主页
-router.get('/', list.index)
+router.get('/', list.index);
 
-router.get('/api/index', list.index)
-router.get('/api/user', list.userInfo)
+router.get('/api/index', list.index);
+router.get('/api/user', list.userInfo);
 
-module.exports = router
+module.exports = router;

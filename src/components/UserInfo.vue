@@ -3,42 +3,93 @@
     <h2>{{dataName}}</h2>
     <h3>状态：{{number}}</h3>
     <router-link to="/">去往首页</router-link>
+    <!-- <ul>
+      <li v-for="item in listData" :key="item._id">
+        {{ item.title }}
+      </li>
+    </ul> -->
+    <Table :columns="columns1" :data="listData"></Table>
   </div>
 </template>
 
 <script>
-import ajax from '../../public/js/ajax'
+import ajax from '../../public/js/ajax';
+import {
+  Table
+} from 'iview';
 
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      dataName: undefined
-    }
+      dataName: undefined,
+      listData: undefined, // 数据
+      columns1: [
+        {
+          title: '标题',
+          key: 'title'
+        },
+        {
+          title: '简略',
+          key: 'summary'
+        },
+        {
+          title: '地址',
+          key: 'url',
+          render: (h, params) => {
+            return h('Button', {
+              props: {
+                type: 'text',
+              }
+            }, params.row.url);
+          }
+        },
+        {
+          title: '来源',
+          key: 'source',
+          render: (h, params) => {
+            let _name = '-';
+            if(params.row.source === 1) {
+              _name = 'RedHub';
+            } else if (params.row.source === 2) {
+              _name = '开源中国';
+            } else if (params.row.source === 3) {
+              _name = '头条新闻';
+            } else if (params.row.source === 4) {
+              _name = '36氪';
+            }
+
+            return h('span', {
+            }, _name)
+          }
+        }
+      ]
+    };
   },
   computed: {
-      // store 计数状态
-      number () {
-        return this.$store.state.count
-      }
+    // store 计数状态
+    number () {
+      return this.$store.state.count;
+    }
   },
   mounted () {
-    this.get()
+    this.get();
   },
   methods: {
     get () {
-      var that = this
+      let that = this;
       ajax.get('http://localhost:3030/api/user', {
       }, (res) => {
-        console.log(res)
-        that.dataName = res.name
+        console.log(res);
+        that.dataName = res.name;
+        that.listData = res.data;
       }, (err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
     }
 
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
