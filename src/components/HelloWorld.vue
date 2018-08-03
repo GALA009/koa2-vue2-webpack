@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import ajax from '../../public/js/ajax';
+import axios from 'axios';
 
 export default {
   data () {
@@ -35,14 +35,23 @@ export default {
   },
   methods: {
     get () {
-      var that = this;
-      ajax.get('http://localhost:3030/api/index', {
-      }, (res) => {
+      let that = this;
+
+      axios.get('http://localhost:3030/api/index', {
+        params: {
+          page: 1,
+          keyword: 'axios'
+        }
+      })
+      .then(res => {
         console.log(res);
-        that.dataName = res.name;
-      }, (err) => {
-        console.log(err);
-      });
+        that.dataName = res.data.name;
+      })
+      .catch( err => {
+        console.error(err);
+      })
+
+
     }
 
   }

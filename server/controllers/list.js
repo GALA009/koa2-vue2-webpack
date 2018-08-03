@@ -7,6 +7,8 @@ const index = async (ctx) => {
 };
 
 const userInfo = async (ctx) => {
+  console.log(ctx.query);
+
   let news = await News.find().limit(30);
 
   ctx.body = {

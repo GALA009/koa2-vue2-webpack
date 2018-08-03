@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ajax from '../../public/js/ajax';
+import axios from 'axios';
 import {
   Table
 } from 'iview';
@@ -39,7 +39,12 @@ export default {
           render: (h, params) => {
             return h('Button', {
               props: {
-                type: 'text',
+                type: 'text'
+              },
+              on: {
+                click: (e) => {
+                  window.open(params.row.url);
+                }
               }
             }, params.row.url);
           }
@@ -78,14 +83,21 @@ export default {
   methods: {
     get () {
       let that = this;
-      ajax.get('http://localhost:3030/api/user', {
-      }, (res) => {
+
+      axios.get('http://localhost:3030/api/user', {
+        params: {
+          page: 1,
+          keyword: 'axios'
+        }
+      })
+      .then(res => {
         console.log(res);
-        that.dataName = res.name;
-        that.listData = res.data;
-      }, (err) => {
-        console.log(err);
-      });
+        that.dataName = res.data.name;
+        that.listData = res.data.data;
+      })
+      .catch( err => {
+        console.error(err);
+      })
     }
 
   }
