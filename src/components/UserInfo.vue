@@ -54,7 +54,7 @@ export default {
           key: 'source',
           render: (h, params) => {
             let _name = '-';
-            if(params.row.source === 1) {
+            if (params.row.source === 1) {
               _name = 'RedHub';
             } else if (params.row.source === 2) {
               _name = '开源中国';
@@ -65,7 +65,7 @@ export default {
             }
 
             return h('span', {
-            }, _name)
+            }, _name);
           }
         }
       ]
@@ -95,11 +95,10 @@ export default {
         that.dataName = res.data.name;
         that.listData = res.data.data;
       })
-      .catch( err => {
+      .catch(err => {
         console.error(err);
-      })
+      });
     }
-
   }
 };
 </script>

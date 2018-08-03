@@ -10,11 +10,21 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: HelloWorld
+      component: HelloWorld,
+      name: 'index',
+      meta: {
+        title: '主页',
+        btnPermissions: ['admin', 'supper']
+      } // 按钮级别控制
     },
     {
       path: '/user',
-      component: UserInfo
+      component: UserInfo,
+      name: 'user',
+      meta: {
+        title: '用户信息',
+        btnPermissions: ['admin', 'supper']
+      } // 按钮级别控制
     }
   ]
 });

@@ -7,10 +7,19 @@
       计数：
       <input type="number" v-model="num">
     </div>
+    <div>
+      <Button type="success">查看</Button>
+      <Button type="info" v-has>编辑</Button>
+      <Button type="error" v-has>删除</Button>
+    </div>
   </div>
 </template>
 
 <script>
+import {
+  Button
+} from 'iview';
+
 import axios from 'axios';
 
 export default {
@@ -47,11 +56,9 @@ export default {
         console.log(res);
         that.dataName = res.data.name;
       })
-      .catch( err => {
+      .catch(err => {
         console.error(err);
-      })
-
-
+      });
     }
 
   }
