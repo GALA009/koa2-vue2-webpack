@@ -1,7 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
+import Index from '@/components/index';
 import UserInfo from '@/components/UserInfo';
+import Login from '@/components/login';
+import Register from '@/components/register';
+import Create from '@/components/create';
 
 Vue.use(Router);
 
@@ -10,11 +13,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: HelloWorld,
+      component: Index,
       name: 'index',
       meta: {
-        title: '主页',
-        btnPermissions: ['admin', 'supper']
+        title: '主页'
       } // 按钮级别控制
     },
     {
@@ -23,7 +25,34 @@ export default new Router({
       name: 'user',
       meta: {
         title: '用户信息',
-        btnPermissions: ['admin', 'supper']
+        role: ['admin', 'supper']
+      } // 按钮级别控制
+    },
+    {
+      path: '/login',
+      component: Login,
+      name: 'login',
+      meta: {
+        title: '登陆',
+        role: ['admin', 'supper']
+      } // 按钮级别控制
+    },
+    {
+      path: '/register',
+      component: Register,
+      name: 'register',
+      meta: {
+        title: '注册',
+        role: ['admin', 'supper']
+      } // 按钮级别控制
+    },
+    {
+      path: '/create',
+      component: Create,
+      name: 'create',
+      meta: {
+        title: '注册',
+        role: ['admin', 'supper']
       } // 按钮级别控制
     }
   ]

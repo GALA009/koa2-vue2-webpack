@@ -3,11 +3,11 @@
     <h2>{{dataName}}</h2>
     <h3>状态：{{number}}</h3>
     <router-link to="/">去往首页</router-link>
-    <!-- <ul>
-      <li v-for="item in listData" :key="item._id">
-        {{ item.title }}
-      </li>
-    </ul> -->
+    <div>
+      <Button type="success">查看</Button>
+      <Button type="info" v-has>编辑</Button>
+      <Button type="error" v-has>删除</Button>
+    </div>
     <Table :columns="columns1" :data="listData"></Table>
   </div>
 </template>
@@ -15,6 +15,7 @@
 <script>
 import axios from 'axios';
 import {
+  Button,
   Table
 } from 'iview';
 
@@ -70,6 +71,10 @@ export default {
         }
       ]
     };
+  },
+  components: {
+    Button,
+    Table
   },
   computed: {
     // store 计数状态
