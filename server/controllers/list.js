@@ -17,7 +17,21 @@ const userInfo = async (ctx) => {
   };
 };
 
+// 登陆
+const login = async (ctx) => {
+  console.log(ctx.query);
+
+  // let news = await News.find().limit(30);
+
+  ctx.body = {
+    error_code: 0,
+    error_msg: '',
+    data: ''
+  };
+};
+
 module.exports = {
   index,
-  userInfo
+  userInfo,
+  login
 };

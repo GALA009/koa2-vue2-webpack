@@ -13,5 +13,6 @@ router.get('/', list.index);
 
 router.get('/api/index', list.index);
 router.get('/api/user', list.userInfo);
+router.post('/api/login', list.login);
 
 module.exports = router;

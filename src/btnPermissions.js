@@ -4,9 +4,9 @@ import Vue from 'vue';
 const has = Vue.directive('has', {
   bind: function (el, binding, vnode) {
     // 获取页面按钮权限
-    let btnPermissionsArr = vnode.context.$route.meta.btnPermissions;
+    let role = vnode.context.$route.meta.role;
     // 如果不存在权限则删除当前控件
-    if (!Vue.prototype.$_has(btnPermissionsArr)) {
+    if (!Vue.prototype.$_has(role)) {
       el.parentNode.removeChild(el);
     }
   }
@@ -16,13 +16,13 @@ const has = Vue.directive('has', {
 Vue.prototype.$_has = function (value) {
   let isExist = false;
   // 获取用户按钮权限
-  let btnPermissionsStr = sessionStorage.getItem('btnPermissions');
+  let role = sessionStorage.getItem('role');
 
-  if (btnPermissionsStr === undefined || btnPermissionsStr == null) {
+  if (role === undefined || role == null) {
     return false;
   }
 
-  if (value.indexOf(btnPermissionsStr) > -1) {
+  if (value.indexOf(role) > -1) {
     isExist = true;
   }
   return isExist;

@@ -28,6 +28,9 @@ export default {
       dataName: undefined
     };
   },
+  components: {
+    Button
+  },
   computed: {
     num: {
       get () {
